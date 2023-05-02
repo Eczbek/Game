@@ -18,5 +18,5 @@ add_executable(${PROJECT}
 	src/main.cpp
 )
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PUBLIC src)
 target_link_libraries(${PROJECT_NAME} PUBLIC uuid)

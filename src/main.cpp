@@ -25,15 +25,15 @@
 #include <xieite/string/toLowercase.hpp>
 
 int main() {
-	game::worlds::Earthlike world(game::components::Position(10, 10));
-	const game::components::Position worldSize = world.getSize();
+	const game::components::Position worldSize(10, 10);
+	game::worlds::Earthlike world(worldSize);
 
-	game::entities::Player player(game::components::Position(5, 7));
+	world.setTile(game::components::Position(3, 4), game::tiles::Stone());
+	world.setTile(game::components::Position(2, 7), game::tiles::Crate());
+
+	game::entities::Player player(game::components::Position(5, 6));
 	const std::string playerUUID(player.getUUID());
 	world.addEntity(player);
-
-	world.setTile(game::components::Position(1, 0), game::tiles::Stone());
-	world.setTile(game::components::Position(2, 1), game::tiles::Crate());
 
 	std::cout
 		<< xieite::terminal::setScreenAlternative(true)
@@ -74,6 +74,7 @@ int main() {
 				<< xieite::terminal::resetStyle()
 				<< "\n\r";
 		}
+		std::cout << "Use WASD to move, press Q to quit";
 
 		std::cout.flush();
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));

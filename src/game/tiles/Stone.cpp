@@ -4,4 +4,4 @@
 #include <xieite/graphics/Color.hpp>
 
 game::tiles::Stone::Stone() noexcept
-: game::tiles::templates::Tile("Stone", true, false, false, game::components::Appearance('#', xieite::graphics::Color(127, 127, 127))) {}
+: game::tiles::templates::Tile("Stone", true, false, false, game::components::Appearance('#', xieite::graphics::Color(255, 255, 255))) {}
