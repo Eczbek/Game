@@ -1,6 +1,6 @@
-#include <tilundawl/components/Appearance.hpp>
-#include <tilundawl/tiles/templates/Tile.hpp>
 #include <string_view>
+#include "../../components/Appearance.hpp"
+#include "../../tiles/templates/Tile.hpp"
 
 tilundawl::tiles::templates::Tile::Tile(const std::string_view typeName, const bool isSolid, const bool isMovable, const bool isReplaceable, const tilundawl::components::Appearance& appearance) noexcept
 : typeName(typeName), isSolid(isSolid), isMovable(isMovable), isReplaceable(isReplaceable), appearance(appearance) {}

@@ -1,7 +1,8 @@
-#pragma once
+#ifndef TILUNDAWL_HEADER__WORLDS__EARTHLIKE
+#	define TILUNDAWL_HEADER__WORLDS__EARTHLIKE
 
-#include <tilundawl/components/Position.hpp>
-#include <tilundawl/worlds/templates/World.hpp>
+#	include "../components/Position.hpp"
+#	include "../worlds/templates/World.hpp"
 
 namespace tilundawl::worlds {
 	class Earthlike
@@ -10,3 +11,5 @@ namespace tilundawl::worlds {
 		Earthlike(const tilundawl::components::Position size) noexcept;
 	};
 }
+
+#endif

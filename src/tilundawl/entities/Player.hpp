@@ -1,7 +1,8 @@
-#pragma once
+#ifndef TILUNDAWL_HEADER__ENTITIES__PLAYER
+#	define TILUNDAWL_HEADER__ENTITIES__PLAYER
 
-#include <tilundawl/components/Position.hpp>
-#include <tilundawl/entities/templates/Entity.hpp>
+#	include "../components/Position.hpp"
+#	include "../entities/templates/Entity.hpp"
 
 namespace tilundawl::entities {
 	class Player
@@ -10,3 +11,5 @@ namespace tilundawl::entities {
 		Player(const tilundawl::components::Position position) noexcept;
 	};
 }
+
+#endif

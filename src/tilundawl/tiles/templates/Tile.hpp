@@ -1,8 +1,9 @@
-#pragma once
+#ifndef TILUNDAWL_HEADER__TILES__TEMPLATES__TILE
+#	define TILUNDAWL_HEADER__TILES__TEMPLATES__TILE
 
-#include <tilundawl/components/Appearance.hpp>
-#include <string>
-#include <string_view>
+#	include <string>
+#	include <string_view>
+#	include "../../components/Appearance.hpp"
 
 namespace tilundawl::tiles::templates {
 	class Tile {
@@ -27,3 +28,5 @@ namespace tilundawl::tiles::templates {
 		const tilundawl::components::Appearance& getAppearance() const noexcept;
 	};
 }
+
+#endif

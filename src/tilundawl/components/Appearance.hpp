@@ -1,6 +1,7 @@
-#pragma once
+#ifndef TILUNDAWL_HEADER__COMPONENTS__APPEARANCE
+#	define TILUNDAWL_HEADER__COMPONENTS__APPEARANCE
 
-#include <xieite/graphics/Color.hpp>
+#	include <xieite/graphics/Color.hpp>
 
 namespace tilundawl::components {
 	struct Appearance {
@@ -10,3 +11,5 @@ namespace tilundawl::components {
 		Appearance(const char texture, const xieite::graphics::Color color) noexcept;
 	};
 }
+
+#endif

@@ -1,13 +1,13 @@
-#include <tilundawl/components/Direction.hpp>
-#include <tilundawl/components/Position.hpp>
-#include <tilundawl/entities/templates/Entity.hpp>
-#include <tilundawl/tiles/templates/Tile.hpp>
-#include <tilundawl/worlds/templates/World.hpp>
 #include <string>
 #include <string_view>
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include "../../components/Direction.hpp"
+#include "../../components/Position.hpp"
+#include "../../entities/templates/Entity.hpp"
+#include "../../tiles/templates/Tile.hpp"
+#include "../../worlds/templates/World.hpp"
 
 tilundawl::worlds::templates::World::World(const std::string_view typeName, const tilundawl::components::Position size, const tilundawl::tiles::templates::Tile& defaultTile) noexcept
 : typeName(typeName), size(size), defaultTile(defaultTile) {

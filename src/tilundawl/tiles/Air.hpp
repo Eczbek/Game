@@ -1,6 +1,7 @@
-#pragma once
+#ifndef TILUNDAWL_HEADER__TILES__AIR
+#	define TILUNDAWL_HEADER__TILES__AIR
 
-#include <tilundawl/tiles/templates/Tile.hpp>
+#	include "../tiles/templates/Tile.hpp"
 
 namespace tilundawl::tiles {
 	class Air
@@ -9,3 +10,5 @@ namespace tilundawl::tiles {
 		Air() noexcept;
 	};
 }
+
+#endif

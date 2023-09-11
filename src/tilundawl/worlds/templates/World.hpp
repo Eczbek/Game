@@ -1,13 +1,14 @@
-#pragma once
+#ifndef TILUNDAWL_HEADER__WORLDS__TEMPLATES__WORLD
+#	define TILUNDAWL_HEADER__WORLDS__TEMPLATES__WORLD
 
-#include <tilundawl/components/Direction.hpp>
-#include <tilundawl/components/Position.hpp>
-#include <tilundawl/entities/templates/Entity.hpp>
-#include <tilundawl/tiles/templates/Tile.hpp>
-#include <string>
-#include <string_view>
-#include <unordered_map>
-#include <vector>
+#	include <string>
+#	include <string_view>
+#	include <unordered_map>
+#	include <vector>
+#	include "../../components/Direction.hpp"
+#	include "../../components/Position.hpp"
+#	include "../../entities/templates/Entity.hpp"
+#	include "../../tiles/templates/Tile.hpp"
 
 namespace tilundawl::worlds::templates {
 	class World {
@@ -50,3 +51,5 @@ namespace tilundawl::worlds::templates {
 		void controlEntity(const std::string& uuid, const tilundawl::components::Direction newDirection) noexcept;
 	};
 }
+
+#endif

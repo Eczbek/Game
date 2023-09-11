@@ -1,9 +1,9 @@
-#include <tilundawl/components/Appearance.hpp>
-#include <tilundawl/components/Direction.hpp>
-#include <tilundawl/components/Position.hpp>
-#include <tilundawl/entities/templates/Entity.hpp>
 #include <string_view>
 #include <xieite/random/getUniversallyUniqueIdentifier.hpp>
+#include "../../components/Appearance.hpp"
+#include "../../components/Direction.hpp"
+#include "../../components/Position.hpp"
+#include "../../entities/templates/Entity.hpp"
 
 tilundawl::entities::templates::Entity::Entity(const std::string_view typeName, const bool isAbleToModifyTiles, const tilundawl::components::Position position, const tilundawl::components::Appearance& appearance) noexcept
 : typeName(typeName), identifier(xieite::random::getUniversallyUniqueIdentifier()), isAbleToModifyTiles(isAbleToModifyTiles), position(position), direction(0, 0), appearance(appearance) {}

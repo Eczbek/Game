@@ -1,12 +1,5 @@
 #include <chrono>
 #include <cstddef>
-#include <tilundawl/components/Appearance.hpp>
-#include <tilundawl/components/Position.hpp>
-#include <tilundawl/entities/Player.hpp>
-#include <tilundawl/entities/templates/Entity.hpp>
-#include <tilundawl/tiles/Crate.hpp>
-#include <tilundawl/tiles/Stone.hpp>
-#include <tilundawl/worlds/Earthlike.hpp>
 #include <iostream>
 #include <limits>
 #include <string>
@@ -16,6 +9,13 @@
 #include <xieite/functors/ScopeGuard.hpp>
 #include <xieite/strings/lowercase.hpp>
 #include <xieite/system/terminal.hpp>
+#include "./tilundawl/components/Appearance.hpp"
+#include "./tilundawl/components/Position.hpp"
+#include "./tilundawl/entities/Player.hpp"
+#include "./tilundawl/entities/templates/Entity.hpp"
+#include "./tilundawl/tiles/Crate.hpp"
+#include "./tilundawl/tiles/Stone.hpp"
+#include "./tilundawl/worlds/Earthlike.hpp"
 
 int main() {
 	const tilundawl::components::Position worldSize(10, 10);

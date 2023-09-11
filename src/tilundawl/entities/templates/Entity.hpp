@@ -1,10 +1,11 @@
-#pragma once
+#ifndef TILUNDAWL_HEADER__ENTITIES__TEMPLATES__ENTITY
+#	define TILUNDAWL_HEADER__ENTITIES__TEMPLATES__ENTITY
 
-#include <tilundawl/components/Appearance.hpp>
-#include <tilundawl/components/Direction.hpp>
-#include <tilundawl/components/Position.hpp>
-#include <string>
-#include <string_view>
+#	include <string>
+#	include <string_view>
+#	include "../../components/Appearance.hpp"
+#	include "../../components/Direction.hpp"
+#	include "../../components/Position.hpp"
 
 namespace tilundawl::entities::templates {
 	class Entity {
@@ -36,3 +37,5 @@ namespace tilundawl::entities::templates {
 		const tilundawl::components::Appearance& getAppearance() const noexcept;
 	};
 }
+
+#endif
