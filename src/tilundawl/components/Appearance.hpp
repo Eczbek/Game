@@ -2,7 +2,7 @@
 
 #include <xieite/graphics/Color.hpp>
 
-namespace game::components {
+namespace tilundawl::components {
 	struct Appearance {
 		char texture;
 		xieite::graphics::Color color;

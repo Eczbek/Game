@@ -1,6 +1,6 @@
 #pragma once
 
-namespace game::components {
+namespace tilundawl::components {
 	struct Direction {
 		int x;
 		int y;

@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-namespace game::components {
+namespace tilundawl::components {
 	struct Position {
 		std::size_t x;
 		std::size_t y;
