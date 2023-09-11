@@ -1,5 +1,6 @@
 #include <chrono>
 #include <cstddef>
+#include <ios>
 #include <iostream>
 #include <limits>
 #include <string>
@@ -8,6 +9,7 @@
 #include <vector>
 #include <xieite/functors/ScopeGuard.hpp>
 #include <xieite/strings/lowercase.hpp>
+#include <xieite/system/BufferPosition.hpp>
 #include <xieite/system/terminal.hpp>
 #include "./tilundawl/components/Appearance.hpp"
 #include "./tilundawl/components/Position.hpp"
@@ -25,14 +27,13 @@ int main() {
 	world.setTile(tilundawl::components::Position(2, 7), tilundawl::tiles::Crate());
 
 	tilundawl::entities::Player player(tilundawl::components::Position(5, 6));
-	const std::string playerIndentifier(player.getIdentifier());
+	const std::string playerIdentifier(player.getIdentifier());
 	world.addEntity(player);
 
 	xieite::system::terminal.setCursorAlternative(true);
 	xieite::system::terminal.setScreenAlternative(true);
-	xieite::system::terminal.setCursorVisible(false);
-	xieite::system::terminal.setInputBlocking(false);
-	xieite::system::terminal.setInputEcho(false);
+	// xieite::system::terminal.setCursorVisible(false);
+	// xieite::system::terminal.setInputEcho(false);
 	
 	xieite::functors::ScopeGuard terminalGuard = xieite::functors::ScopeGuard([]() {
 		xieite::system::terminal.setCursorVisible(true);
@@ -68,33 +69,36 @@ int main() {
 			xieite::system::terminal.resetStyles();
 			std::cout << "\n\r";
 		}
-		std::cout << "Use WASD to move, press Q to quit";
 
 		std::cout.flush();
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-		const std::string input = xieite::system::terminal.readString();
-		if (input.size()) {
-			switch (xieite::strings::lowercase(input.back())) {
+		const xieite::system::BufferPosition arrowInput = xieite::system::terminal.readArrow();
+		if (arrowInput.row || arrowInput.column) {
+			world.controlEntity(playerIdentifier, tilundawl::components::Direction(arrowInput.column, -arrowInput.row));	
+		} else {
+			switch (xieite::strings::lowercase(xieite::system::terminal.readCharacter())) {
 				case 'q':
 					running = false;
 					break;
 				case 'd':
-					world.controlEntity(playerIndentifier, tilundawl::components::Direction(1, 0));
+					world.controlEntity(playerIdentifier, tilundawl::components::Direction(1, 0));
 					break;
 				case 'a':
-					world.controlEntity(playerIndentifier, tilundawl::components::Direction(-1, 0));
+					world.controlEntity(playerIdentifier, tilundawl::components::Direction(-1, 0));
 					break;
 				case 'w':
-					world.controlEntity(playerIndentifier, tilundawl::components::Direction(0, 1));
+					world.controlEntity(playerIdentifier, tilundawl::components::Direction(0, 1));
 					break;
 				case 's':
-					world.controlEntity(playerIndentifier, tilundawl::components::Direction(0, -1));
+					world.controlEntity(playerIdentifier, tilundawl::components::Direction(0, -1));
 					break;
 				case 'x':
-					world.controlEntity(playerIndentifier, tilundawl::components::Direction(0, 0));
+					world.controlEntity(playerIdentifier, tilundawl::components::Direction(0, 0));
 					break;
 			}
 		}
+
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max());
 	}
 }

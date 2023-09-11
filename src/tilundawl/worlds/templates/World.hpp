@@ -40,15 +40,15 @@ namespace tilundawl::worlds::templates {
 
 		const std::unordered_map<std::string, tilundawl::entities::templates::Entity>& getEntities() const noexcept;
 
-		const tilundawl::entities::templates::Entity& getEntity(const std::string& uuid) const noexcept;
+		const tilundawl::entities::templates::Entity& getEntity(const std::string& identifier) const noexcept;
 
-		tilundawl::entities::templates::Entity& getEntity(const std::string& uuid) noexcept;
+		tilundawl::entities::templates::Entity& getEntity(const std::string& identifier) noexcept;
 
 		void addEntity(tilundawl::entities::templates::Entity entity) noexcept;
 
-		void removeEntity(const std::string& uuid) noexcept;
+		void removeEntity(const std::string& identifier) noexcept;
 
-		void controlEntity(const std::string& uuid, const tilundawl::components::Direction newDirection) noexcept;
+		void controlEntity(const std::string& identifier, const tilundawl::components::Direction newDirection) noexcept;
 	};
 }
 
