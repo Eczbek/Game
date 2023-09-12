@@ -7,7 +7,7 @@ file(
 )
 project(
 	${PROJECT_NAMESPACE}
-	VERSION 0.1.2
+	VERSION 0.1.3
 )
 add_executable(
 	${PROJECT_NAMESPACE} ${PROJECT_SOURCES}

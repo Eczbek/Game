@@ -32,8 +32,9 @@ int main() {
 
 	xieite::system::terminal.setCursorAlternative(true);
 	xieite::system::terminal.setScreenAlternative(true);
-	// xieite::system::terminal.setCursorVisible(false);
-	// xieite::system::terminal.setInputEcho(false);
+	xieite::system::terminal.setCursorVisible(false);
+	xieite::system::terminal.setInputBlocking(false);
+	xieite::system::terminal.setInputEcho(false);
 	
 	xieite::functors::ScopeGuard terminalGuard = xieite::functors::ScopeGuard([]() {
 		xieite::system::terminal.setCursorVisible(true);
@@ -69,13 +70,13 @@ int main() {
 			xieite::system::terminal.resetStyles();
 			std::cout << "\n\r";
 		}
-
+		
 		std::cout.flush();
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
 		const xieite::system::BufferPosition arrowInput = xieite::system::terminal.readArrow();
 		if (arrowInput.row || arrowInput.column) {
-			world.controlEntity(playerIdentifier, tilundawl::components::Direction(arrowInput.column, -arrowInput.row));	
+			world.controlEntity(playerIdentifier, tilundawl::components::Direction(arrowInput.column, -arrowInput.row));
 		} else {
 			switch (xieite::strings::lowercase(xieite::system::terminal.readCharacter())) {
 				case 'q':
@@ -98,7 +99,6 @@ int main() {
 					break;
 			}
 		}
-
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max());
+		xieite::system::terminal.readString();
 	}
 }
